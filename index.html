@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AERO — Notes · Lousy Engineering</title>
+<meta name="description" content="AERO — Notes — aerospace engineering notes.">
+<script>(function(){var a=null,b=null;try{a=JSON.parse(localStorage.getItem('le-state'))}catch(e){}try{b=(JSON.parse(window.name)||{}).__lousy_engineer__}catch(e){}var s=(a&&b)?((b.ts||0)>(a.ts||0)?b:a):(a||b||{});var t=s.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22-2%20-2%20104%20104%22%3E%3Cg%20fill%3D%22%23ff4f00%22%20stroke%3D%22%23ff4f00%22%20transform%3D%22rotate%2845%2050%2050%29%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M57%2034%20L57%2042%20L93%2061%20L91%2067%20L57%2058%20L57%2077%20L68%2086%20L66%2091%20L53%2087.5%20L50%2094%20L47%2087.5%20L34%2091%20L32%2086%20L43%2077%20L43%2058%20L9%2067%20L7%2061%20L43%2042%20L43%2035%20L47%2030%20L50%2034%20L53.5%2029%20Z%22/%3E%3Cpath%20d%3D%22M43%2018%20C43%206%2046.5%20-1%2050%20-1%20C53.5%20-1%2057%206%2057%2018%20L50%2013%20Z%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="is-home" data-root="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="Lousy Engineering — home">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="-2 -2 104 104"><g transform="rotate(45 50 50)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><path d="M57 34 L57 42 L93 61 L91 67 L57 58 L57 77 L68 86 L66 91 L53 87.5 L50 94 L47 87.5 L34 91 L32 86 L43 77 L43 58 L9 67 L7 61 L43 42 L43 35 L47 30 L50 34 L53.5 29 Z"/><path d="M43 18 C43 6 46.5 -1 50 -1 C53.5 -1 57 6 57 18 L50 13 Z"/></g></svg></span>
+    <span class="brand-word">Lousy<em>Engineering</em></span>
+  </a>
+  <nav class="crumbs" aria-label="Breadcrumb"><span aria-current="page">AERO</span></nav>
+  <div class="top-actions">
+    <button class="search-trigger" type="button" data-search-open aria-label="Search notes"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4.5 4.5"/></svg><span>Search notes</span><kbd>Ctrl K</kbd></button>
+    <div class="bm-wrap"><button class="bm-toggle" type="button" aria-expanded="false" aria-label="Saved sections" title="Saved sections"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.6l-4.8 2.5.9-5.4L2.2 7.9l5.4-.8z"/></svg><span class="bm-count mono">0</span></button>
+      <div class="bm-panel" hidden><div class="bm-head"><span class="mono">Saved</span><button class="btn-ghost bm-clear" type="button">Clear all</button></div><ol class="bm-list"></ol></div></div>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode"><svg class="i-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2.1M10 16.1v2.1M1.8 10h2.1M16.1 10h2.1M4.2 4.2l1.5 1.5M14.3 14.3l1.5 1.5M4.2 15.8l1.5-1.5M14.3 5.7l1.5-1.5"/></svg><svg class="i-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 12.6A7 7 0 0 1 7.4 3.5a7 7 0 1 0 9.1 9.1Z"/></svg></button>
+  </div>
+</header>
+<main id="main" class="home">
+    <section class="home-hero">
+      <p class="eyebrow mono"><span class="dot"></span>NTU · School of Mechanical &amp; Aerospace Engineering</p>
+      <h1 class="display tagline" title="Click for another tagline">Tolerances loose.<br><em>Grades</em> tight.</h1>
+      <div class="hero-actions"><button class="btn btn-accent btn-lg" type="button" data-search-open><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4.5 4.5"/></svg>Search all notes <kbd>Ctrl K</kbd></button><a class="btn btn-lg" href="#reg-title">Browse modules <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
+    </section>
+    <section class="home-saved" aria-labelledby="saved-title" hidden>
+      <header class="register-head"><h2 id="saved-title" class="mono">Saved sections</h2><span class="mono saved-n"></span></header>
+      <ol class="saved-grid"></ol>
+    </section>
+    <section class="register" aria-labelledby="reg-title">
+      <header class="register-head">
+        <h2 id="reg-title" class="mono">Module register — AERO</h2>
+        <div class="reg-tools">
+          <div class="chips" role="group" aria-label="Filter by level"><button class="chip active" type="button" data-level="all">All</button><button class="chip" type="button" data-level="1">Year 1</button><button class="chip" type="button" data-level="2">Year 2</button><button class="chip" type="button" data-level="3">Year 3</button><button class="chip" type="button" data-level="4">Year 4</button><button class="chip" type="button" data-level="live">Ported</button></div>
+          <input class="reg-filter" type="search" placeholder="Filter modules…" aria-label="Filter modules">
+        </div>
+      </header>
+      <div class="reg-cols mono" aria-hidden="true"><span>Code</span><span>Module</span><span>Grade</span><span>Status</span><span></span></div>
+      <ol class="reg-list"><li class="reg-row" data-level="1" data-q="eg1001 engineers in society">
+    <div>
+      <span class="r-code mono">EG1001</span>
+      <span class="r-name">ENGINEERS IN SOCIETY</span>
+      <span class="r-grade mono">A-</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="1" data-q="ma1001 dynamics">
+    <div>
+      <span class="r-code mono">MA1001</span>
+      <span class="r-name">DYNAMICS</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="1" data-q="ma1008 computing using python">
+    <div>
+      <span class="r-code mono">MA1008</span>
+      <span class="r-name">COMPUTING USING PYTHON</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="2" data-q="ma2001 mechanics of materials">
+    <div>
+      <span class="r-code mono">MA2001</span>
+      <span class="r-name">MECHANICS OF MATERIALS</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="2" data-q="ma2003 thermofluids">
+    <div>
+      <span class="r-code mono">MA2003</span>
+      <span class="r-name">THERMOFLUIDS</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="2" data-q="ma2006 engineering mathematics">
+    <div>
+      <span class="r-code mono">MA2006</span>
+      <span class="r-name">ENGINEERING MATHEMATICS</span>
+      <span class="r-grade mono">A-</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="2" data-q="ma2007 thermodynamics">
+    <div>
+      <span class="r-code mono">MA2007</span>
+      <span class="r-name">THERMODYNAMICS</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="2" data-q="ma2700 aerospace materials">
+    <div>
+      <span class="r-code mono">MA2700</span>
+      <span class="r-name">AEROSPACE MATERIALS</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="2" data-q="ma2701 flight performance">
+    <div>
+      <span class="r-code mono">MA2701</span>
+      <span class="r-name">FLIGHT PERFORMANCE</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="3" data-q="ma3003 heat transfer">
+    <div>
+      <span class="r-code mono">MA3003</span>
+      <span class="r-name">HEAT TRANSFER</span>
+      <span class="r-grade mono">A-</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="3" data-q="ma3005 control theory">
+    <div>
+      <span class="r-code mono">MA3005</span>
+      <span class="r-name">CONTROL THEORY</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="3" data-q="ma3006 fluid mechanics">
+    <div>
+      <span class="r-code mono">MA3006</span>
+      <span class="r-name">FLUID MECHANICS</span>
+      <span class="r-grade mono">B+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="3" data-q="ma3700 aircraft structures 1">
+    <div>
+      <span class="r-code mono">MA3700</span>
+      <span class="r-name">AIRCRAFT STRUCTURES 1</span>
+      <span class="r-grade mono">A</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="3" data-q="ma3701 aerodynamics">
+    <div>
+      <span class="r-code mono">MA3701</span>
+      <span class="r-name">AERODYNAMICS</span>
+      <span class="r-grade mono">A</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="3" data-q="ma3702 aircraft propulsion">
+    <div>
+      <span class="r-code mono">MA3702</span>
+      <span class="r-name">AIRCRAFT PROPULSION</span>
+      <span class="r-grade mono">A</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="3" data-q="ma3703 flight dynamics">
+    <div>
+      <span class="r-code mono">MA3703</span>
+      <span class="r-name">FLIGHT DYNAMICS</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="3" data-q="ma3704 aircraft electrical devices">
+    <div>
+      <span class="r-code mono">MA3704</span>
+      <span class="r-name">AIRCRAFT ELECTRICAL DEVICES</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row is-live" data-level="4" data-q="ma4079 final year project">
+    <a href="ma4079/index.html">
+      <span class="r-code mono">MA4079</span>
+      <span class="r-name">FINAL YEAR PROJECT</span>
+      <span class="r-grade mono">A</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Open <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </li><li class="reg-row is-live" data-level="4" data-q="ma4701 aircraft design">
+    <a href="ma4701/index.html">
+      <span class="r-code mono">MA4701</span>
+      <span class="r-name">AIRCRAFT DESIGN</span>
+      <span class="r-grade mono">A</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Open <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </li><li class="reg-row is-live" data-level="4" data-q="ma4702 aircraft structures 2">
+    <a href="ma4702/index.html">
+      <span class="r-code mono">MA4702</span>
+      <span class="r-name">AIRCRAFT STRUCTURES 2</span>
+      <span class="r-grade mono">A</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Open <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </li><li class="reg-row is-live" data-level="4" data-q="ma4704 aeroelasticity">
+    <a href="ma4704/index.html">
+      <span class="r-code mono">MA4704</span>
+      <span class="r-name">AEROELASTICITY</span>
+      <span class="r-grade mono">A-</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Open <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </li><li class="reg-row is-live" data-level="4" data-q="ma4705 aircraft nav. &amp; flight comp.">
+    <a href="ma4705/index.html">
+      <span class="r-code mono">MA4705</span>
+      <span class="r-name">AIRCRAFT NAV. &amp; FLIGHT COMP.</span>
+      <span class="r-grade mono">A</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Open <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </li><li class="reg-row" data-level="1" data-q="mh1811 mathematics 2">
+    <div>
+      <span class="r-code mono">MH1811</span>
+      <span class="r-name">MATHEMATICS 2</span>
+      <span class="r-grade mono">A-</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li><li class="reg-row" data-level="1" data-q="ph1012 physics a">
+    <div>
+      <span class="r-code mono">PH1012</span>
+      <span class="r-name">PHYSICS A</span>
+      <span class="r-grade mono">A+</span>
+      <span class="r-status"><span class="pill pill-green">COMPLETED</span></span>
+      <span class="r-port mono">Not yet ported</span>
+    </div>
+  </li></ol>
+    </section>
+  </main>
+<footer class="site-foot">
+  <div class="foot-grid">
+    <p class="foot-title">Lousy<em>Engineering</em></p>
+    <p>Content ported verbatim from <a href="https://lousy.notion.site/915741e3969e485686900f8980c2a89b" target="_blank" rel="noopener">lousy.notion.site</a>. Shared with the author's permission.</p>
+    <p class="mono">Press <kbd>/</kbd> or <kbd>Ctrl K</kbd> to search · <kbd>T</kbd> to toggle theme</p>
+  </div>
+</footer>
+<div class="search-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="search-panel">
+    <div class="search-field"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4.5 4.5"/></svg><input type="search" placeholder="Search equations, topics, exam questions…" aria-label="Search" autocomplete="off" spellcheck="false"><kbd>Esc</kbd></div>
+    <div class="search-scope" role="radiogroup" aria-label="Search scope"></div>
+    <ol class="search-results" role="listbox"></ol>
+    <div class="search-foot mono"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span class="search-count"></span></div>
+  </div>
+</div>
+<div class="lightbox" hidden><button class="lb-close" type="button" aria-label="Close">×</button><img alt=""></div>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="assets/js/minisearch.min.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script>window.LE_TAGLINES=["Tolerances loose.<br><em>Grades</em> tight.","Built to spec.<br><em>Loosely.</em>","<em>Peer-reviewed</em><br>by nobody.","Factor of safety:<br><em>vibes.</em>","Assume a<br><em>spherical</em> student.","Neglecting friction,<br><em>and sleep.</em>","Small-angle approximations<br>for <em>big-angle problems.</em>","<em>Mostly</em><br>load-bearing.","Converges<br><em>eventually.</em>","Steady state,<br><em>unsteady</em> engineer.","Notes that <em>pass inspection.</em><br>Barely.","Rated for <em>one</em><br>exam season.","Lift-to-drag ratio:<br><em>negative.</em>","<em>Statically indeterminate,</em><br>emotionally too.","Higher-order terms<br><em>neglected.</em>","Damping ratio:<br><em>critically</em> behind.","Undamped.<br><em>Overcaffeinated.</em>","Mesh refined.<br><em>Student</em> not.","Error bars <em>included</em><br>for honesty.","<em>Air</em> on the side<br>of caution.","The <em>derivation</em><br>the lecturer skipped.","Works on paper.<br><em>That's the point.</em>","Approximately <em>correct,</em><br>exactly <em>on time.</em>","<em>Hand calcs</em> only.<br>Prayers optional."];</script>
+<script src="assets/js/media-local.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

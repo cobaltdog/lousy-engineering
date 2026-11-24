@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANSYS Wing Box Stress Analysis — MA4701 · Lousy Engineering</title>
+<meta name="description" content="ANSYS Wing Box Stress Analysis — MA4701 — aerospace engineering notes.">
+<script>(function(){var a=null,b=null;try{a=JSON.parse(localStorage.getItem('le-state'))}catch(e){}try{b=(JSON.parse(window.name)||{}).__lousy_engineer__}catch(e){}var s=(a&&b)?((b.ts||0)>(a.ts||0)?b:a):(a||b||{});var t=s.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;})();</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22-2%20-2%20104%20104%22%3E%3Cg%20fill%3D%22%23ff4f00%22%20stroke%3D%22%23ff4f00%22%20transform%3D%22rotate%2845%2050%2050%29%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M57%2034%20L57%2042%20L93%2061%20L91%2067%20L57%2058%20L57%2077%20L68%2086%20L66%2091%20L53%2087.5%20L50%2094%20L47%2087.5%20L34%2091%20L32%2086%20L43%2077%20L43%2058%20L9%2067%20L7%2061%20L43%2042%20L43%2035%20L47%2030%20L50%2034%20L53.5%2029%20Z%22/%3E%3Cpath%20d%3D%22M43%2018%20C43%206%2046.5%20-1%2050%20-1%20C53.5%20-1%2057%206%2057%2018%20L50%2013%20Z%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body class="is-doc" data-root="../" data-page="284aca09-0bdd-8078-abb2-e5408fb33a01">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Lousy Engineering — home">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="-2 -2 104 104"><g transform="rotate(45 50 50)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><path d="M57 34 L57 42 L93 61 L91 67 L57 58 L57 77 L68 86 L66 91 L53 87.5 L50 94 L47 87.5 L34 91 L32 86 L43 77 L43 58 L9 67 L7 61 L43 42 L43 35 L47 30 L50 34 L53.5 29 Z"/><path d="M43 18 C43 6 46.5 -1 50 -1 C53.5 -1 57 6 57 18 L50 13 Z"/></g></svg></span>
+    <span class="brand-word">Lousy<em>Engineering</em></span>
+  </a>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">AERO</a><span class="sep" aria-hidden="true">/</span><a href="index.html">MA4701</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">ANSYS Wing Box Stress Analysis</span></nav>
+  <div class="top-actions">
+    <button class="search-trigger" type="button" data-search-open aria-label="Search notes"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4.5 4.5"/></svg><span>Search notes</span><kbd>Ctrl K</kbd></button>
+    <div class="bm-wrap"><button class="bm-toggle" type="button" aria-expanded="false" aria-label="Saved sections" title="Saved sections"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.6l-4.8 2.5.9-5.4L2.2 7.9l5.4-.8z"/></svg><span class="bm-count mono">0</span></button>
+      <div class="bm-panel" hidden><div class="bm-head"><span class="mono">Saved</span><button class="btn-ghost bm-clear" type="button">Clear all</button></div><ol class="bm-list"></ol></div></div>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode"><svg class="i-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2.1M10 16.1v2.1M1.8 10h2.1M16.1 10h2.1M4.2 4.2l1.5 1.5M14.3 14.3l1.5 1.5M4.2 15.8l1.5-1.5M14.3 5.7l1.5-1.5"/></svg><svg class="i-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 12.6A7 7 0 0 1 7.4 3.5a7 7 0 1 0 9.1 9.1Z"/></svg></button>
+  </div>
+</header>
+<div class="page-grid">
+      <aside class="rail-left"><nav class="course-nav" aria-label="AIRCRAFT DESIGN pages">
+    <a class="cn-home" href="index.html"><span class="mono">MA4701</span>AIRCRAFT DESIGN</a>
+    <div class="cn-group"><p class="cn-label mono"></p><ol><li><a href="final-report.html"><span class="cn-num mono" aria-hidden="true">01</span><span>Final Report</span></a></li><li><a href="ansys-wing-box-stress-analysis.html" class="active" aria-current="page"><span class="cn-num mono" aria-hidden="true">02</span><span>ANSYS Wing Box Stress Analysis</span></a></li></ol></div>
+  </nav></aside>
+      <main id="main" class="doc">
+        <header class="doc-head">
+          <p class="eyebrow mono"><span class="dot"></span>MA4701 · AIRCRAFT DESIGN</p>
+          <h1 class="doc-title">ANSYS Wing Box Stress Analysis<button class="bm-btn bm-page" type="button" aria-pressed="false" aria-label="Save page" title="Save page" data-bm-url="ma4701/ansys-wing-box-stress-analysis.html" data-bm-title="ANSYS Wing Box Stress Analysis" data-bm-trail="" data-bm-page="ANSYS Wing Box Stress Analysis" data-bm-course="MA4701"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.6l-4.8 2.5.9-5.4L2.2 7.9l5.4-.8z"/></svg></button></h1>
+          <div class="doc-tools">
+            <button class="btn" type="button" data-expand-all>Expand all</button><button class="btn" type="button" data-collapse-all>Collapse all</button>
+            <button class="btn" type="button" data-print title="Print or save as PDF (all sections expanded)"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6V2h8v4M4 12H2.5V6.5h11V12H12M4 9.5h8V14H4z"/></svg>Print / PDF</button>
+            
+          </div>
+        </header>
+        <article class="prose"><hr class="blk rule"><details class="tog tog-h1" data-key="284aca09-0bdd-8037-b8bc-dff234f652eb" data-anchor="finite-element-model"><summary><h2 id="finite-element-model" class="hd hd1 "><a class="anchor" href="#finite-element-model" aria-label="Link to this section">#</a><span class="fg-red">Finite Element Model</span><button class="bm-btn" type="button" aria-pressed="false" aria-label="Save section" title="Save section" data-bm-url="ma4701/ansys-wing-box-stress-analysis.html#finite-element-model" data-bm-title="Finite Element Model" data-bm-trail="" data-bm-page="ANSYS Wing Box Stress Analysis" data-bm-course="MA4701"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.6l-4.8 2.5.9-5.4L2.2 7.9l5.4-.8z"/></svg></button></h2></summary><div class="tog-body"><figure class="blk code"><div class="code-bar"><span class="code-lang">C++</span><button class="btn-ghost copy-code" type="button" aria-label="Copy code"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg><span>Copy</span></button></div><pre><code class="hljs">!<span class="hljs-string">&quot;CLEAR &amp; START NEW&quot;</span>
+/CLEAR,NOSTART
+
+YM = <span class="hljs-number">73.1e9</span> !<span class="hljs-string">&quot;Young&#x27;s Modulus&quot;</span>
+PR = <span class="hljs-number">0.33</span> !<span class="hljs-string">&quot;Poisson ratio&quot;</span>
+x = <span class="hljs-number">9.35</span>
+y = <span class="hljs-number">3.305</span>
+
+!<span class="hljs-string">&quot;SELECT ELEMENT TYPE&quot;</span>
+/PREP7
+ET,Shell,SHELL181
+ET,Beam,BEAM188
+
+!<span class="hljs-string">&quot;DEFINE MATERIAL PROPERTIES&quot;</span>
+MPTEMP, , , , , , , , 
+MPTEMP,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>
+MPDATA,EX,<span class="hljs-number">1</span>, ,YM
+MPDATA,PRXY,<span class="hljs-number">1</span>, ,PR
+
+!<span class="hljs-string">&quot;DEFINE SPAR SECTION&quot;</span>
+SECTYPE,<span class="hljs-number">1</span>,BEAM,T,Spar,<span class="hljs-number">0</span>  
+SECOFFSET,ORIG
+SECDATA,<span class="hljs-number">0.12</span>,<span class="hljs-number">0.06</span>,<span class="hljs-number">0.015</span>,<span class="hljs-number">0.015</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>
+
+!<span class="hljs-string">&quot;DEFINE STRINGER SECTION
+SECTYPE,2,BEAM,Z,Stringer,0
+SECOFFSET,ORIG
+SECDATA,0.0325,0.0325,0.0525,0.0075,0.0075,0.0075,0,0,0,0,0,0
+
+!&quot;</span>DEFINE SHELL THICKNESS<span class="hljs-string">&quot;
+sect,3,shell,,Skin
+secdata,0.01,1,0.0,3
+secoffset,MID
+seccontrol, , , , , , , 
+
+!&quot;</span>CREATE KEYPOINTS<span class="hljs-string">&quot;
+!&quot;</span>Wing Root<span class="hljs-string">&quot;
+K,1,9.35-x,3.305-y,0
+K,2,9.718-x,3.331-y,0
+K,3,10.6-x,3.396-y,0
+K,4,10.6-x,3.652-y,0
+K,5,9.718-x,3.764-y,0
+K,6,9.35-x,3.739-y,0
+!&quot;</span><span class="hljs-number">20</span>% Wing Span<span class="hljs-string">&quot;
+K,7,9.35-x,3.305-y,2.3
+K,8,9.718-x,3.331-y,2.3
+K,9,10.6-x,3.396-y,2.3
+K,10,10.6-x,3.652-y,2.3
+K,11,9.718-x,3.764-y,2.3
+K,12,9.35-x,3.739-y,2.3
+!&quot;</span><span class="hljs-number">40</span>% Wing Span<span class="hljs-string">&quot;
+K,13,9.35-x,3.305-y,4.5
+K,14,9.718-x,3.331-y,4.5
+K,15,10.6-x,3.396-y,4.5
+K,16,10.6-x,3.652-y,4.5
+K,17,9.718-x,3.764-y,4.5
+K,18,9.35-x,3.739-y,4.5
+!&quot;</span><span class="hljs-number">60</span>% Wing Span<span class="hljs-string">&quot;
+K,19,9.467-x,3.45-y,6.9
+K,20,9.795-x,3.468-y,6.9
+K,21,10.551-x,3.523-y,6.9
+K,22,10.551-x,3.729-y,6.9
+K,23,9.795-x,3.818-y,6.9
+K,24,9.467-x,3.796-y,6.9
+!&quot;</span><span class="hljs-number">80</span>% Wing Span<span class="hljs-string">&quot;
+K,25,9.578-x,3.59-y,9.2
+K,26,9.869-x,3.599-y,9.2
+K,27,10.505-x,3.645-y,9.2
+K,28,10.505-x,3.802-y,9.2
+K,29,9.869-x,3.87-y,9.2
+K,30,9.578-x,3.852-y,9.2
+!&quot;</span>Wing Tip<span class="hljs-string">&quot;
+K,31,9.69-x,3.73-y,11.5
+K,32,9.943-x,3.73-y,11.5
+K,33,10.458-x,3.767-y,11.5
+K,34,10.458-x,3.875-y,11.5
+K,35,9.943-x,3.922-y,11.5
+K,36,9.69-x,3.907-y,11.5
+
+!&quot;</span>CREATE LINES<span class="hljs-string">&quot;
+!&quot;</span>Wing Root<span class="hljs-string">&quot;
+LSTR, 1, 2
+LSTR, 2, 3
+LSTR, 3, 4
+LSTR, 4, 5
+LSTR, 5, 6
+LSTR, 6, 1
+!&quot;</span><span class="hljs-number">20</span>% Wing Span<span class="hljs-string">&quot;
+LSTR, 7, 8
+LSTR, 8, 9
+LSTR, 9,10
+LSTR,10,11
+LSTR,11,12
+LSTR,12, 7
+!&quot;</span><span class="hljs-number">40</span>% Wing Span<span class="hljs-string">&quot;
+LSTR,13,14
+LSTR,14,15
+LSTR,15,16
+LSTR,16,17
+LSTR,17,18
+LSTR,18,13
+!&quot;</span><span class="hljs-number">60</span>% Wing Span<span class="hljs-string">&quot;
+LSTR,19,20
+LSTR,20,21
+LSTR,21,22
+LSTR,22,23
+LSTR,23,24
+LSTR,24,19
+!&quot;</span><span class="hljs-number">80</span>% Wing Span<span class="hljs-string">&quot;
+LSTR,25,26
+LSTR,26,27
+LSTR,27,28
+LSTR,28,29
+LSTR,29,30
+LSTR,30,25
+!&quot;</span>Wing Tip<span class="hljs-string">&quot;
+LSTR,31,32
+LSTR,32,33
+LSTR,33,34
+LSTR,34,35
+LSTR,35,36
+LSTR,36,31
+!&quot;</span>Bottom Lines<span class="hljs-string">&quot;
+LSTR, 1, 7
+LSTR, 7,13
+LSTR,13,19
+LSTR,19,25
+LSTR,25,31
+LSTR, 2, 8
+LSTR, 8,14
+LSTR,14,20
+LSTR,20,26
+LSTR,26,32
+LSTR, 3, 9
+LSTR, 9,15
+LSTR,15,21
+LSTR,21,27
+LSTR,27,33
+!&quot;</span>Top Lines<span class="hljs-string">&quot;
+LSTR, 4,10
+LSTR,10,16
+LSTR,16,22
+LSTR,22,28
+LSTR,28,34
+LSTR, 5,11
+LSTR,11,17
+LSTR,17,23
+LSTR,23,29
+LSTR,29,35
+LSTR, 6,12
+LSTR,12,18
+LSTR,18,24
+LSTR,24,30
+LSTR,30,36
+
+!&quot;</span>ADDITIONAL KEYPOINTS<span class="hljs-string">&quot;
+KL, 2,0.33, , 
+KL, 2,0.66, , 
+KL, 4,0.33, , 
+KL, 4,0.66, , 
+KL, 8,0.33, , 
+KL, 8,0.66, , 
+KL,10,0.33, , 
+KL,10,0.66, , 
+KL,14,0.33, , 
+KL,14,0.66, , 
+KL,16,0.33, , 
+KL,16,0.66, , 
+KL,20,0.33, , 
+KL,20,0.66, , 
+KL,22,0.33, , 
+KL,22,0.66, , 
+KL,26,0.33, , 
+KL,26,0.66, , 
+KL,28,0.33, , 
+KL,28,0.66, , 
+KL,32,0.33, , 
+KL,32,0.66, , 
+KL,34,0.33, , 
+KL,34,0.66, , 
+
+!&quot;</span>ADDITIONAL LINES<span class="hljs-string">&quot;
+LSTR,37,41
+LSTR,41,45
+LSTR,45,49
+LSTR,49,53
+LSTR,53,57
+LSTR,38,42
+LSTR,42,46
+LSTR,46,50
+LSTR,50,54
+LSTR,54,58
+LSTR,39,43
+LSTR,43,47
+LSTR,47,51
+LSTR,51,55
+LSTR,55,59
+LSTR,40,44
+LSTR,44,48
+LSTR,48,52
+LSTR,52,56
+LSTR,56,60
+
+!&quot;</span>DELETE EXCESS LINES<span class="hljs-string">&quot;
+LDELE,2
+LDELE,4
+LDELE,8
+LDELE,10
+LDELE,14
+LDELE,16
+LDELE,20
+LDELE,22
+LDELE,26
+LDELE,28
+LDELE,32
+LDELE,34
+
+!&quot;</span>CREATE BEAM ORIENTATION KEYPOINTS<span class="hljs-string">&quot;
+K, ,6.25,-1e6,0
+K, ,6.25,1e6,0
+
+!&quot;</span>PLOT AREAS<span class="hljs-string">&quot;
+!&quot;</span>Front Surface<span class="hljs-string">&quot;
+A, 1, 6,12, 7
+A, 7,12,18,13
+A,13,18,24,19
+A,19,24,30,25
+A,25,30,36,31
+!&quot;</span>Aft Surface<span class="hljs-string">&quot;
+A, 3, 4,10, 9
+A, 9,10,16,15
+A,15,16,22,21
+A,21,22,28,27
+A,27,28,34,33
+!&quot;</span>Bottom Surface<span class="hljs-string">&quot;
+A, 1, 2, 8, 7
+A, 2,37,41, 8
+A,37,38,42,41
+A,38, 3, 9,42
+A, 7, 8,14,13
+A, 8,41,45,14
+A,41,42,46,45
+A,42, 9,15,46
+A,13,14,20,19
+A,14,45,49,20
+A,45,46,50,49
+A,46,15,21,50
+A,19,20,26,25
+A,20,49,53,26
+A,49,50,54,53
+A,50,21,27,54
+A,25,26,32,31
+A,26,53,57,32
+A,53,54,58,57
+A,54,27,33,58
+!&quot;</span>Top Surface<span class="hljs-string">&quot;
+A,36,35,29,30
+A,35,60,56,29
+A,60,59,55,56
+A,59,34,28,55
+A,30,29,23,24
+A,29,56,52,23
+A,56,55,51,52
+A,55,28,22,51
+A,24,23,17,18
+A,23,52,48,17
+A,52,51,47,48
+A,51,22,16,47
+A,18,17,11,12
+A,17,48,44,11
+A,48,47,43,44
+A,47,16,10,43
+A,12,11,5,6
+A,11,44,40,5
+A,44,43,39,40
+A,43,10,4,39
+
+!&quot;</span>MESH SPARS<span class="hljs-string">&quot;
+!&quot;</span>Top Spars<span class="hljs-string">&quot;
+FLST,5,10,4,ORDE,4
+FITEM,5,52
+FITEM,5,-56
+FITEM,5,62
+FITEM,5,-66
+CM,_Y,LINE
+LSEL, , , ,P51X
+CM,_Y1,LINE
+CMSEL,S,_Y
+CMSEL,S,_Y1
+LATT,1, ,2, ,61, ,1
+CMSEL,S,_Y
+CMDELE,_Y
+CMDELE,_Y1
+!&quot;</span>Bottom Spars<span class="hljs-string">&quot;
+FLST,5,10,4,ORDE,4
+FITEM,5,37
+FITEM,5,-41
+FITEM,5,47
+FITEM,5,-51
+CM,_Y,LINE
+LSEL, , , ,P51X
+CM,_Y1,LINE
+CMSEL,S,_Y
+CMSEL,S,_Y1
+LATT,1, ,2, ,62, ,1
+CMSEL,S,_Y
+CMDELE,_Y
+CMDELE,_Y
+!&quot;</span>Meshing<span class="hljs-string">&quot;
+ESIZE,0.2,0, 
+FLST,2,20,4,ORDE,6  
+FITEM,2,37  
+FITEM,2,-41 
+FITEM,2,47  
+FITEM,2,-56 
+FITEM,2,62  
+FITEM,2,-66 
+LMESH,P51X
+
+!&quot;</span>MESH STRINGERS<span class="hljs-string">&quot;
+!&quot;</span>Top Stringers<span class="hljs-string">&quot;
+FLST,5,15,4,ORDE,4
+FITEM,5,57
+FITEM,5,-61
+FITEM,5,77
+FITEM,5,-86
+CM,_Y,LINE
+LSEL, , , ,P51X
+CM,_Y1,LINE
+CMSEL,S,_Y
+CMSEL,S,_Y1
+LATT,1, ,2, ,61, ,2
+CMSEL,S,_Y
+CMDELE,_Y
+CMDELE,_Y1
+!&quot;</span>Bottom Stringers<span class="hljs-string">&quot;
+FLST,5,15,4,ORDE,4
+FITEM,5,42
+FITEM,5,-46
+FITEM,5,67
+FITEM,5,-76
+CM,_Y,LINE
+LSEL, , , ,P51X
+CM,_Y1,LINE
+CMSEL,S,_Y
+CMSEL,S,_Y1
+LATT,1, ,2, ,62, ,2
+CMSEL,S,_Y
+CMDELE,_Y
+CMDELE,_Y1
+!&quot;</span>Meshing<span class="hljs-string">&quot;
+ESIZE,0.2,0, 
+FLST,2,30,4,ORDE,6
+FITEM,2,42
+FITEM,2,-46
+FITEM,2,57
+FITEM,2,-61
+FITEM,2,67
+FITEM,2,-86
+LMESH,P51X
+
+!&quot;</span>REVERSE NORMALS<span class="hljs-string">&quot;
+FLST,5,15,4,ORDE,4
+FITEM,5,42
+FITEM,5,-46
+FITEM,5,67
+FITEM,5,-76
+CM,_Y,LINE
+LSEL, , , ,P51X
+CM,_Y1,LINE
+CMSEL,S,_Y
+CMDELE,_Y
+LREVERSE,_Y1,0
+CMDELE,_Y1
+
+!&quot;</span>MESH SKIN<span class="hljs-string">&quot;
+AATT,1, ,1,0,3
+ESIZE,0.2,0, 
+MSHAPE,0,2D
+MSHKEY,0
+FLST,5,50,5,ORDE,2
+FITEM,5,1
+FITEM,5,-50
+CM,_Y,AREA
+ASEL, , , ,P51X
+CM,_Y1,AREA
+CHKMSH,&#x27;AREA&#x27;
+CMSEL,S,_Y
+AMESH,_Y1
+CMDELE,_Y
+CMDELE,_Y1
+CMDELE,_Y2
+
+!&quot;</span>APPLY BOUNDARY CONDITIONS<span class="hljs-string">&quot;
+FLST,2,10,4,ORDE,8
+FITEM,2,1
+FITEM,2,-3
+FITEM,2,5
+FITEM,2,-6
+FITEM,2,8
+FITEM,2,14
+FITEM,2,108
+FITEM,2,-110
+/GO
+DL,P51X, ,ALL,0
+
+!&quot;</span>APPLY WING LOADING<span class="hljs-string">&quot;
+FLST,2,1,3,ORDE,1
+FITEM,2,6
+/GO
+FK,P51X,FY,21551.82458
+FLST,2,1,3,ORDE,1
+FITEM,2,12
+/GO
+FK,P51X,FY,47923.15226
+FLST,2,1,3,ORDE,1
+FITEM,2,18
+/GO
+FK,P51X,FY,52808.35027
+FLST,2,1,3,ORDE,1
+FITEM,2,24
+/GO
+FK,P51X,FY,55182.00818
+FLST,2,1,3,ORDE,1
+FITEM,2,30
+/GO
+FK,P51X,FY,52574.95063
+FLST,2,1,3,ORDE,1
+FITEM,2,36
+/GO
+FK,P51X,FY,13983.4641
+
+!&quot;</span>SOLVE<span class="hljs-string">&quot;
+FINISH
+/SOL
+/STATUS,SOLU
+SOLVE
+
+!&quot;</span>GENERAL POSTPROC<span class="hljs-string">&quot;
+FINISH
+/POST1
+SET,LAST
+/SHRINK,0
+/ESHAPE,1.0
+/EFACET,1
+/RATIO,1,1,1
+/CFORMAT,32,0
+/REPLOT</span></code></pre></figure></div></details><details class="tog tog-h1" data-key="284aca09-0bdd-80de-8799-d87bd20ddc69" data-anchor="solution-distributions"><summary><h2 id="solution-distributions" class="hd hd1 "><a class="anchor" href="#solution-distributions" aria-label="Link to this section">#</a><span class="fg-red">Solution Distributions</span><button class="bm-btn" type="button" aria-pressed="false" aria-label="Save section" title="Save section" data-bm-url="ma4701/ansys-wing-box-stress-analysis.html#solution-distributions" data-bm-title="Solution Distributions" data-bm-trail="" data-bm-page="ANSYS Wing Box Stress Analysis" data-bm-course="MA4701"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.6l-4.8 2.5.9-5.4L2.2 7.9l5.4-.8z"/></svg></button></h2></summary><div class="tog-body"><figure class="blk code"><div class="code-bar"><span class="code-lang">C++</span><button class="btn-ghost copy-code" type="button" aria-label="Copy code"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg><span>Copy</span></button></div><pre><code class="hljs">!<span class="hljs-string">&quot;PLOT DISPLACEMENT&quot;</span>
+/VIEW,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>
+/ANG,<span class="hljs-number">1</span>
+/REP,FAST
+/EFACET,<span class="hljs-number">1</span>
+PLNSOL,U,SUM,<span class="hljs-number">1</span>,<span class="hljs-number">1.0</span></code></pre></figure><figure class="blk code"><div class="code-bar"><span class="code-lang">C++</span><button class="btn-ghost copy-code" type="button" aria-label="Copy code"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg><span>Copy</span></button></div><pre><code class="hljs">!<span class="hljs-string">&quot;PLOT STRESS (SKIN)&quot;</span>
+/VIEW,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>
+/ANG,<span class="hljs-number">1</span>
+/REP,FAST
+/EFACET,<span class="hljs-number">1</span>
+ESEL,ALL
+ESEL,S,TYPE, ,<span class="hljs-number">1</span>
+EPLOT
+PLNSOL,S,EQV,<span class="hljs-number">0</span>,<span class="hljs-number">1.0</span></code></pre></figure><figure class="blk code"><div class="code-bar"><span class="code-lang">C++</span><button class="btn-ghost copy-code" type="button" aria-label="Copy code"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg><span>Copy</span></button></div><pre><code class="hljs">!<span class="hljs-string">&quot;PLOT STRESS (SPARS &amp; STRINGERS)&quot;</span>
+/VIEW,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>   
+/ANG,<span class="hljs-number">1</span>  
+/REP,FAST
+/EFACET,<span class="hljs-number">1</span>
+ESEL,ALL
+ESEL,S,TYPE, ,<span class="hljs-number">2</span>
+EPLOT
+PLNSOL,S,EQV,<span class="hljs-number">0</span>,<span class="hljs-number">1.0</span></code></pre></figure></div></details></article>
+        <nav class="pager" aria-label="Pagination">
+          <a class="pg pg-prev" href="final-report.html"><span class="mono">Previous</span><strong>Final Report</strong></a>
+          <span></span>
+        </nav>
+      </main>
+      <aside class="rail-right"><nav class="toc" aria-label="On this page"><p class="toc-label mono">On this page</p><ol><li class="toc-l1"><a href="#finite-element-model"><span class="fg-red">Finite Element Model</span></a></li><li class="toc-l1"><a href="#solution-distributions"><span class="fg-red">Solution Distributions</span></a></li></ol></nav></aside>
+    </div>
+<footer class="site-foot">
+  <div class="foot-grid">
+    <p class="foot-title">Lousy<em>Engineering</em></p>
+    <p>Content ported verbatim from <a href="https://lousy.notion.site/915741e3969e485686900f8980c2a89b" target="_blank" rel="noopener">lousy.notion.site</a>. Shared with the author's permission.</p>
+    <p class="mono">Press <kbd>/</kbd> or <kbd>Ctrl K</kbd> to search · <kbd>T</kbd> to toggle theme</p>
+  </div>
+</footer>
+<div class="search-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="search-panel">
+    <div class="search-field"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4.5 4.5"/></svg><input type="search" placeholder="Search equations, topics, exam questions…" aria-label="Search" autocomplete="off" spellcheck="false"><kbd>Esc</kbd></div>
+    <div class="search-scope" role="radiogroup" aria-label="Search scope"></div>
+    <ol class="search-results" role="listbox"></ol>
+    <div class="search-foot mono"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span class="search-count"></span></div>
+  </div>
+</div>
+<div class="lightbox" hidden><button class="lb-close" type="button" aria-label="Close">×</button><img alt=""></div>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="../assets/js/minisearch.min.js"></script>
+<script src="../assets/js/search-index.js"></script>
+
+<script src="../assets/js/media-local.js"></script>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>
