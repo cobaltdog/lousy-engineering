@@ -22,7 +22,7 @@ const REGISTER = [
   ['AIRCRAFT NAV. & FLIGHT COMP.', 'MA4705', 'A'], ['MATHEMATICS 2', 'MH1811', 'A-'], ['PHYSICS A', 'PH1012', 'A+'],
 ].map(([name, code, grade]) => ({ name, code, grade, status: 'COMPLETED' }));
 
-const COURSES = ['MA4079', 'MA4701', 'MA4702', 'MA4704', 'MA4705'].map((code) => ({ code, data: `data/${code.toLowerCase()}.json` }));
+const COURSES = ['MA2006', 'MA3003', 'MA3005', 'MA3006', 'MA3700', 'MA3701', 'MA3702', 'MA3703', 'MA3704', 'MA4079', 'MA4701', 'MA4702', 'MA4704', 'MA4705'].map((code) => ({ code, data: `data/${code.toLowerCase()}.json` }));
 
 const TAGLINES = ["Tolerances loose.<br><em>Grades</em> tight.", "Built to spec.<br><em>Loosely.</em>", "<em>Peer-reviewed</em><br>by nobody.", "Factor of safety:<br><em>vibes.</em>", "Assume a<br><em>spherical</em> student.", "Neglecting friction,<br><em>and sleep.</em>", "Small-angle approximations<br>for <em>big-angle problems.</em>", "<em>Mostly</em><br>load-bearing.", "Converges<br><em>eventually.</em>", "Steady state,<br><em>unsteady</em> engineer.", "Notes that <em>pass inspection.</em><br>Barely.", "Rated for <em>one</em><br>exam season.", "Lift-to-drag ratio:<br><em>negative.</em>", "<em>Statically indeterminate,</em><br>emotionally too.", "Higher-order terms<br><em>neglected.</em>", "Damping ratio:<br><em>critically</em> behind.", "Undamped.<br><em>Overcaffeinated.</em>", "Mesh refined.<br><em>Student</em> not.", "Error bars <em>included</em><br>for honesty.", "<em>Air</em> on the side<br>of caution.", "The <em>derivation</em><br>the lecturer skipped.", "Works on paper.<br><em>That's the point.</em>", "Approximately <em>correct,</em><br>exactly <em>on time.</em>", "<em>Hand calcs</em> only.<br>Prayers optional."];
 
@@ -174,7 +174,7 @@ function renderPage(course, page) {
   };
   const pushText = (s) => { if (s && s.trim()) secCur.text.push(s); };
 
-  const kids = (b) => (b.content || []).map((id) => B[id]).filter(Boolean);
+  const kids = (b) => (b.content || []).map((id) => B[id]).filter((x) => x && x.type);
 
   function renderList(list, depth) {
     let html = '';
@@ -312,6 +312,7 @@ function renderPage(course, page) {
         return `<div class="blk cols" style="--cols:${tracks}">${cols.map((c) => `<div class="col">${c.type === 'column' ? renderList(kids(c), depth) : renderBlock(c, depth)}</div>`).join('')}</div>`;
       }
       case 'column': return `<div class="col">${renderList(kids(b), depth)}</div>`;
+      case 'transclusion_container': return renderList(kids(b), depth);
       case 'page': {
         const p = course.byId.get(b.id);
         return `<a class="blk page-link" href="${p ? p.slug + '.html' : '#'}"><span aria-hidden="true">${esc(b.format?.page_icon || '📄')}</span>${esc(plain(t))}</a>`;

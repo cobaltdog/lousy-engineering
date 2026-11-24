@@ -1,4 +1,4 @@
-# Lousy Engineering — AERO notes (Year 4: MA4079, MA4701, MA4702, MA4704, MA4705)
+# Lousy Engineering — AERO notes (Years 2–4: MA2006, MA3003–MA3704, MA4079–MA4705)
 
 Open `index.html` in a browser. No server or internet connection is needed for the text, equations, search and theming.
 
@@ -21,6 +21,6 @@ Saved items, open sections, theme and practice mode are stored in your browser o
 
 ## Structure
 - `index.html` — AERO module register
-- `ma4079/`, `ma4701/`, `ma4702/`, `ma4704/`, `ma4705/` — module page plus one page per Notion sub-page
+- one folder per module (`ma2006/`, `ma3003/` … `ma4705/`) — module page plus one page per Notion sub-page
 - `assets/downloads/` — formula-sheet cheat sheet (PDF + Markdown/LaTeX)
 - `_source/` — generator (Node) and the scraped Notion block data, for rebuilding and adding courses
