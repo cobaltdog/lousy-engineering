@@ -1,4 +1,4 @@
-# Lousy Engineering — AERO notes (Years 2–4: MA2006, MA3003–MA3704, MA4079–MA4705)
+# Lousy Engineering — AERO notes (all 24 modules, Years 1–4)
 
 Open `index.html` in a browser. No server or internet connection is needed for the text, equations, search and theming.
 
