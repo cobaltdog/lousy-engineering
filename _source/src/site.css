@@ -411,7 +411,7 @@ span[class^="bg-"] { padding: 0 3px; border-radius: 3px; }
 /* footer */
 .site-foot { border-top: 1px solid var(--rule); background: var(--paper-2); }
 .foot-grid { max-width: 1480px; margin: 0 auto; padding: 28px 32px; display: flex; flex-wrap: wrap; gap: 12px 40px; align-items: center; color: var(--muted); font-size: 13.5px; }
-.foot-grid p { margin: 0; }
+.foot-grid p { margin: 0; max-width: 720px; }
 .foot-title { font: 600 14px var(--f-body); color: var(--ink); }
 .foot-title em { font: italic 400 17px var(--f-display); color: var(--muted); margin-left: 2px; }
 .foot-grid .mono { margin-left: auto; text-transform: none; font-size: 12px; }
